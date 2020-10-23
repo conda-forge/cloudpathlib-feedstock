@@ -11,16 +11,16 @@ source:
   sha256: e1b8bde94e3521fdd0ee4f1648278f514fbe7259ea14bd7d2adeccb83c6d6267
 
 build:
-  number: 0
-  skip: true   # [py<36]
+  number: 1
+  skip: true   # [py2k]
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
   run:
-    - python
+    - python >=3.6
     - importlib-metadata  # [py<38]
 
 test:
@@ -38,9 +38,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python
+        - python >=3.6
       run:
-        - python
+        - python >=3.6
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - azure-storage-blob >=12
     test:
@@ -56,9 +56,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python
+        - python >=3.6
       run:
-        - python
+        - python >=3.6
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - boto3
     test:
@@ -74,9 +74,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python
+        - python >=3.6
       run:
-        - python
+        - python >=3.6
         - {{ pin_subpackage('cloudpathlib-azure', exact=True) }}
         - {{ pin_subpackage('cloudpathlib-s3', exact=True) }}
     test:
