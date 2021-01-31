@@ -67,6 +67,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-cloudpathlib-green.svg)](https://anaconda.org/conda-forge/cloudpathlib) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/cloudpathlib.svg)](https://anaconda.org/conda-forge/cloudpathlib) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/cloudpathlib.svg)](https://anaconda.org/conda-forge/cloudpathlib) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/cloudpathlib.svg)](https://anaconda.org/conda-forge/cloudpathlib) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-cloudpathlib--all-green.svg)](https://anaconda.org/conda-forge/cloudpathlib-all) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/cloudpathlib-all.svg)](https://anaconda.org/conda-forge/cloudpathlib-all) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/cloudpathlib-all.svg)](https://anaconda.org/conda-forge/cloudpathlib-all) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/cloudpathlib-all.svg)](https://anaconda.org/conda-forge/cloudpathlib-all) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-cloudpathlib--azure-green.svg)](https://anaconda.org/conda-forge/cloudpathlib-azure) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/cloudpathlib-azure.svg)](https://anaconda.org/conda-forge/cloudpathlib-azure) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/cloudpathlib-azure.svg)](https://anaconda.org/conda-forge/cloudpathlib-azure) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/cloudpathlib-azure.svg)](https://anaconda.org/conda-forge/cloudpathlib-azure) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-cloudpathlib--gs-green.svg)](https://anaconda.org/conda-forge/cloudpathlib-gs) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/cloudpathlib-gs.svg)](https://anaconda.org/conda-forge/cloudpathlib-gs) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/cloudpathlib-gs.svg)](https://anaconda.org/conda-forge/cloudpathlib-gs) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/cloudpathlib-gs.svg)](https://anaconda.org/conda-forge/cloudpathlib-gs) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-cloudpathlib--s3-green.svg)](https://anaconda.org/conda-forge/cloudpathlib-s3) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/cloudpathlib-s3.svg)](https://anaconda.org/conda-forge/cloudpathlib-s3) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/cloudpathlib-s3.svg)](https://anaconda.org/conda-forge/cloudpathlib-s3) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/cloudpathlib-s3.svg)](https://anaconda.org/conda-forge/cloudpathlib-s3) |
 
 Installing cloudpathlib
@@ -78,10 +79,10 @@ Installing `cloudpathlib` from the `conda-forge` channel can be achieved by addi
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `cloudpathlib, cloudpathlib-all, cloudpathlib-azure, cloudpathlib-s3` can be installed with:
+Once the `conda-forge` channel has been enabled, `cloudpathlib, cloudpathlib-all, cloudpathlib-azure, cloudpathlib-gs, cloudpathlib-s3` can be installed with:
 
 ```
-conda install cloudpathlib cloudpathlib-all cloudpathlib-azure cloudpathlib-s3
+conda install cloudpathlib cloudpathlib-all cloudpathlib-azure cloudpathlib-gs cloudpathlib-s3
 ```
 
 It is possible to list all of the versions of `cloudpathlib` available on your platform with:
