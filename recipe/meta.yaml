@@ -11,16 +11,16 @@ source:
   sha256: 04af66bf7fe11c2c37422fa9e00e45ec0d615e27ef58637a0b75a7bd336739c2
 
 build:
-  number: 0
-  skip: true  # [py2k]
+  number: 1
+  skip: true  # [py<36]
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python
   run:
-    - python >=3.6
+    - python
     - importlib-metadata  # [py<38]
 
 test:
@@ -38,9 +38,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6
+        - python
       run:
-        - python >=3.6
+        - python
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - azure-storage-blob >=12
     test:
@@ -56,9 +56,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6
+        - python
       run:
-        - python >=3.6
+        - python
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - google-cloud-storage
     test:
@@ -74,9 +74,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6
+        - python
       run:
-        - python >=3.6
+        - python
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - boto3
     test:
@@ -92,9 +92,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6
+        - python
       run:
-        - python >=3.6
+        - python
         - {{ pin_subpackage('cloudpathlib-azure', exact=True) }}
         - {{ pin_subpackage('cloudpathlib-gs', exact=True) }}
         - {{ pin_subpackage('cloudpathlib-s3', exact=True) }}
