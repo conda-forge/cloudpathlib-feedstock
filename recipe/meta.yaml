@@ -40,7 +40,7 @@ outputs:
         - pip
         - python
       run:
-        - python
+        - python >=3.7
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - azure-storage-blob >=12
     test:
@@ -58,7 +58,7 @@ outputs:
         - pip
         - python
       run:
-        - python
+        - python >=3.7
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - google-cloud-storage
     test:
@@ -76,7 +76,7 @@ outputs:
         - pip
         - python
       run:
-        - python
+        - python >=3.7
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - boto3
     test:
@@ -94,7 +94,7 @@ outputs:
         - pip
         - python
       run:
-        - python
+        - python >=3.7
         - {{ pin_subpackage('cloudpathlib-azure', exact=True) }}
         - {{ pin_subpackage('cloudpathlib-gs', exact=True) }}
         - {{ pin_subpackage('cloudpathlib-s3', exact=True) }}
