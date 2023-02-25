@@ -3,7 +3,7 @@
 
 
 package:
-  name: cloudpathlib
+  name: cloudpathlib-meta
   version: {{ version }}
 
 source:
@@ -11,39 +11,46 @@ source:
   sha256: 7135f975b28917348f3ca8feb85f83277c89ac9acf331d1b87d945ecdbe2dffb
 
 build:
-  number: 0
-  skip: true  # [py<36]
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 2
+  noarch: python
 
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - pip
-    - python
-  run:
-    - python
-    - importlib-metadata  # [py<38]
-
-test:
-  imports:
-    - cloudpathlib
-  commands:
-    - pip check
-  requires:
-    - pip
+    - python >=3.7
 
 outputs:
   - name: cloudpathlib
-
-  - name: cloudpathlib-azure
+    build:
+      number: 1
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host:
         - pip
-        - python
+        - python >=3.7
       run:
-        - python
+        - python >=3.7
+        - importlib-metadata
+    test:
+      imports:
+        - cloudpathlib
+      commands:
+        - pip check
+      requires:
+        - pip
+
+  - name: cloudpathlib-azure
+    build:
+      number: 1
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv
+    requirements:
+      host:
+        - pip
+        - python >=3.7
+      run:
+        - python >=3.7
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - azure-storage-blob >=12
     test:
@@ -56,12 +63,16 @@ outputs:
         - pip
 
   - name: cloudpathlib-gs
+    build:
+      number: 1
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host:
         - pip
-        - python
+        - python >=3.7
       run:
-        - python
+        - python >=3.7
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - google-cloud-storage
     test:
@@ -74,12 +85,16 @@ outputs:
         - pip
 
   - name: cloudpathlib-s3
+    build:
+      number: 1
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host:
         - pip
-        - python
+        - python >=3.7
       run:
-        - python
+        - python >=3.7
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - boto3
     test:
@@ -92,12 +107,16 @@ outputs:
         - pip
 
   - name: cloudpathlib-all
+    build:
+      number: 1
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host:
         - pip
-        - python
+        - python >=3.7
       run:
-        - python
+        - python >=3.7
         - {{ pin_subpackage('cloudpathlib-azure', exact=True) }}
         - {{ pin_subpackage('cloudpathlib-gs', exact=True) }}
         - {{ pin_subpackage('cloudpathlib-s3', exact=True) }}
@@ -122,5 +141,6 @@ about:
   dev_url: https://github.com/drivendataorg/cloudpathlib
 
 extra:
+  feedstock-name: cloudpathlib
   recipe-maintainers:
     - jayqi
