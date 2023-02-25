@@ -10,25 +10,23 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 7135f975b28917348f3ca8feb85f83277c89ac9acf331d1b87d945ecdbe2dffb
 
-build:
+build: &build
   number: 2
   noarch: python
 
 requirements:
-  host:
+  host: &host
     - pip
     - python >=3.7
+
 
 outputs:
   - name: cloudpathlib
     build:
-      number: 2
-      noarch: python
+      <<: *build
       script: {{ PYTHON }} -m pip install . -vv
     requirements:
-      host:
-        - pip
-        - python >=3.7
+      host: *host
       run:
         - python >=3.7
         - importlib-metadata
@@ -41,13 +39,9 @@ outputs:
         - pip
 
   - name: cloudpathlib-azure
-    build:
-      number: 2
-      noarch: python
+    build: *build
     requirements:
-      host:
-        - pip
-        - python >=3.7
+      host: *host
       run:
         - python >=3.7
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
@@ -62,13 +56,9 @@ outputs:
         - pip
 
   - name: cloudpathlib-gs
-    build:
-      number: 2
-      noarch: python
+    build: *build
     requirements:
-      host:
-        - pip
-        - python >=3.7
+      host: *host
       run:
         - python >=3.7
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
@@ -83,13 +73,9 @@ outputs:
         - pip
 
   - name: cloudpathlib-s3
-    build:
-      number: 2
-      noarch: python
+    build: *build
     requirements:
-      host:
-        - pip
-        - python >=3.7
+      host: *host
       run:
         - python >=3.7
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
@@ -104,13 +90,9 @@ outputs:
         - pip
 
   - name: cloudpathlib-all
-    build:
-      number: 2
-      noarch: python
+    build: *build
     requirements:
-      host:
-        - pip
-        - python >=3.7
+      host: *host
       run:
         - python >=3.7
         - {{ pin_subpackage('cloudpathlib-azure', exact=True) }}
