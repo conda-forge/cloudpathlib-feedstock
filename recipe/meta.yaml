@@ -44,7 +44,6 @@ outputs:
     build:
       number: 2
       noarch: python
-      script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host:
         - pip
@@ -66,7 +65,6 @@ outputs:
     build:
       number: 2
       noarch: python
-      script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host:
         - pip
@@ -88,7 +86,6 @@ outputs:
     build:
       number: 2
       noarch: python
-      script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host:
         - pip
@@ -110,7 +107,6 @@ outputs:
     build:
       number: 2
       noarch: python
-      script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host:
         - pip
