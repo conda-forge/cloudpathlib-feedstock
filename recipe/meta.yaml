@@ -15,20 +15,12 @@ build:
   noarch: python
 
 requirements:
-  host: &host
+  host:
     - pip
     - python >=3.7
   run:
     - python >=3.7
     - importlib-metadata
-
-test:
-  imports:
-    - cloudpathlib
-  commands:
-    - pip check
-  requires:
-    - pip
 
 outputs:
   - name: cloudpathlib
@@ -36,6 +28,13 @@ outputs:
       number: 1
       noarch: python
       script: {{ PYTHON }} -m pip install . -vv
+    test:
+      imports:
+        - cloudpathlib
+      commands:
+        - pip check
+      requires:
+        - pip
 
   - name: cloudpathlib-azure
     build:
@@ -43,7 +42,9 @@ outputs:
       noarch: python
       script: {{ PYTHON }} -m pip install . -vv
     requirements:
-      host: *host
+      host:
+        - pip
+        - python >=3.7
       run:
         - python >=3.7
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
@@ -63,7 +64,9 @@ outputs:
       noarch: python
       script: {{ PYTHON }} -m pip install . -vv
     requirements:
-      host: *host
+      host:
+        - pip
+        - python >=3.7
       run:
         - python >=3.7
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
@@ -83,7 +86,9 @@ outputs:
       noarch: python
       script: {{ PYTHON }} -m pip install . -vv
     requirements:
-      host: *host
+      host:
+        - pip
+        - python >=3.7
       run:
         - python >=3.7
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
@@ -103,7 +108,9 @@ outputs:
       noarch: python
       script: {{ PYTHON }} -m pip install . -vv
     requirements:
-      host: *host
+      host:
+        - pip
+        - python >=3.7
       run:
         - python >=3.7
         - {{ pin_subpackage('cloudpathlib-azure', exact=True) }}
