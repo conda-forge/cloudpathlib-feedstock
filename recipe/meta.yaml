@@ -10,23 +10,25 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 7135f975b28917348f3ca8feb85f83277c89ac9acf331d1b87d945ecdbe2dffb
 
-build: &build
+build:
   number: 2
   noarch: python
 
 requirements:
-  host: &host
+  host:
     - pip
     - python >=3.7
 
 
 outputs:
   - name: cloudpathlib
-    build:
-      <<: *build
+    build: &build
+      noarch: python
       script: {{ PYTHON }} -m pip install . -vv
     requirements:
-      host: *host
+      host: &host
+        - pip
+        - python >=3.7
       run:
         - python >=3.7
         - importlib-metadata
@@ -39,7 +41,9 @@ outputs:
         - pip
 
   - name: cloudpathlib-azure
-    build: *build
+    build:
+      <<: *build
+      script: null
     requirements:
       host: *host
       run:
@@ -56,7 +60,9 @@ outputs:
         - pip
 
   - name: cloudpathlib-gs
-    build: *build
+    build:
+      <<: *build
+      script: null
     requirements:
       host: *host
       run:
@@ -73,7 +79,9 @@ outputs:
         - pip
 
   - name: cloudpathlib-s3
-    build: *build
+    build:
+      <<: *build
+      script: null
     requirements:
       host: *host
       run:
@@ -90,7 +98,9 @@ outputs:
         - pip
 
   - name: cloudpathlib-all
-    build: *build
+    build:
+      <<: *build
+      script: null
     requirements:
       host: *host
       run:
