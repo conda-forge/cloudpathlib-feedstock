@@ -3,7 +3,7 @@
 
 
 package:
-  name: cloudpathlib
+  name: cloudpathlib-meta
   version: {{ version }}
 
 source:
@@ -13,7 +13,7 @@ source:
 build: &build
   number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+
 
 requirements:
   host: &host
@@ -33,9 +33,14 @@ test:
 
 outputs:
   - name: cloudpathlib
+    build:
+      <<: *build
+      script: {{ PYTHON }} -m pip install . -vv
 
   - name: cloudpathlib-azure
-    build: *build
+    build:
+      <<: *build
+      script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host: *host
       run:
@@ -52,7 +57,9 @@ outputs:
         - pip
 
   - name: cloudpathlib-gs
-    build: *build
+    build:
+      <<: *build
+      script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host: *host
       run:
@@ -69,7 +76,9 @@ outputs:
         - pip
 
   - name: cloudpathlib-s3
-    build: *build
+    build:
+      <<: *build
+      script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host: *host
       run:
@@ -86,7 +95,9 @@ outputs:
         - pip
 
   - name: cloudpathlib-all
-    build: *build
+    build:
+      <<: *build
+      script: {{ PYTHON }} -m pip install . -vv
     requirements:
       host: *host
       run:
@@ -115,5 +126,6 @@ about:
   dev_url: https://github.com/drivendataorg/cloudpathlib
 
 extra:
+  feedstock-name: cloudpathlib
   recipe-maintainers:
     - jayqi
