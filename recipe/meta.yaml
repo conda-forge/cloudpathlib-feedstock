@@ -22,7 +22,7 @@ requirements:
 
 outputs:
   - name: cloudpathlib
-    build: &build
+    build:
       noarch: python
       script: {{ PYTHON }} -m pip install . -vv
     requirements:
@@ -42,8 +42,7 @@ outputs:
 
   - name: cloudpathlib-azure
     build:
-      <<: *build
-      script: null
+      noarch: python
     requirements:
       host: *host
       run:
@@ -61,8 +60,7 @@ outputs:
 
   - name: cloudpathlib-gs
     build:
-      <<: *build
-      script: null
+      noarch: python
     requirements:
       host: *host
       run:
@@ -80,8 +78,7 @@ outputs:
 
   - name: cloudpathlib-s3
     build:
-      <<: *build
-      script: null
+      noarch: python
     requirements:
       host: *host
       run:
@@ -99,8 +96,7 @@ outputs:
 
   - name: cloudpathlib-all
     build:
-      <<: *build
-      script: null
+      noarch: python
     requirements:
       host: *host
       run:
