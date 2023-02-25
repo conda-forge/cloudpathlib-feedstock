@@ -14,20 +14,19 @@ build:
   number: 1
   noarch: python
 
-requirements:
-  host:
-    - pip
-    - python >=3.7
-  run:
-    - python >=3.7
-    - importlib-metadata
-
 outputs:
   - name: cloudpathlib
     build:
       number: 1
       noarch: python
       script: {{ PYTHON }} -m pip install . -vv
+    requirements:
+      host:
+        - pip
+        - python >=3.7
+      run:
+        - python >=3.7
+        - importlib-metadata
     test:
       imports:
         - cloudpathlib
