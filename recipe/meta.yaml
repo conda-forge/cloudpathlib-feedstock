@@ -32,6 +32,7 @@ outputs:
       run:
         - python >=3.7
         - importlib-metadata
+        - typing_extensions
     test:
       imports:
         - cloudpathlib
