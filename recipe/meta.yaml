@@ -1,5 +1,5 @@
 {% set name = "cloudpathlib" %}
-{% set version = "0.16.0" %}
+{% set version = "0.17.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: cdfcd35d46d529587d744154a0bdf962aca953b725c8784cd2ec478354ea63a3
+  sha256: 097c94926d0e8b76df61fec12ba1b725728c6a77071ca7e6565be93fb4496ff9
 
 build:
   number: 0
