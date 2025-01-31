@@ -7,17 +7,17 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: f6ef7ca409a510f7ba4639ba50ab3fc5b6dee82d6dff0d7f5715fd0c9ab35891
 
 build:
-  number: 0
+  number: 1
   noarch: python
 
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
     - flit-core >=3.2,<4
 
 
@@ -28,12 +28,12 @@ outputs:
       noarch: python
       script: {{ PYTHON }} -m pip install . -vv
     requirements:
-      host: &host
+      host:
         - pip
-        - python >=3.8
+        - python {{ python_min }}
         - flit-core >=3.2,<4
       run:
-        - python >=3.8
+        - python >={{ python_min }}
         - typing_extensions
     test:
       imports:
@@ -47,9 +47,12 @@ outputs:
     build:
       noarch: python
     requirements:
-      host: *host
+      host:
+        - pip
+        - python {{ python_min }}
+        - flit-core >=3.2,<4
       run:
-        - python >=3.8
+        - python >={{ python_min }}
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - azure-storage-blob >=12
         - azure-storage-file-datalake >=12
@@ -66,9 +69,12 @@ outputs:
     build:
       noarch: python
     requirements:
-      host: *host
+      host:
+        - pip
+        - python {{ python_min }}
+        - flit-core >=3.2,<4
       run:
-        - python >=3.8
+        - python >={{ python_min }}
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - google-cloud-storage
     test:
@@ -84,9 +90,12 @@ outputs:
     build:
       noarch: python
     requirements:
-      host: *host
+      host:
+        - pip
+        - python {{ python_min }}
+        - flit-core >=3.2,<4
       run:
-        - python >=3.8
+        - python >={{ python_min }}
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
         - boto3 >=1.34.0
     test:
@@ -102,9 +111,12 @@ outputs:
     build:
       noarch: python
     requirements:
-      host: *host
+      host:
+        - pip
+        - python {{ python_min }}
+        - flit-core >=3.2,<4
       run:
-        - python >=3.8
+        - python >={{ python_min }}
         - {{ pin_subpackage('cloudpathlib-azure', exact=True) }}
         - {{ pin_subpackage('cloudpathlib-gs', exact=True) }}
         - {{ pin_subpackage('cloudpathlib-s3', exact=True) }}
@@ -118,6 +130,7 @@ outputs:
         - python -c "from cloudpathlib.cloudpath import implementation_registry; implementation_registry['s3'].validate_completeness()"
       requires:
         - pip
+        - python {{ python_min }}
 
 
 about:
