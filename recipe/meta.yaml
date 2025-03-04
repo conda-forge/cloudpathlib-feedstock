@@ -1,5 +1,5 @@
 {% set name = "cloudpathlib" %}
-{% set version = "0.20.0" %}
+{% set version = "0.21.0" %}
 
 
 package:
@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f6ef7ca409a510f7ba4639ba50ab3fc5b6dee82d6dff0d7f5715fd0c9ab35891
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: fb8f6b890a3d37b35f0eabff86721bb8d35dfc6a6be98c1f4d34b19e989c6641
 
 build:
   number: 0
@@ -28,7 +28,7 @@ outputs:
       noarch: python
       script: {{ PYTHON }} -m pip install . -vv
     requirements:
-      host: &host
+      host:
         - pip
         - python >=3.8
         - flit-core >=3.2,<4
@@ -47,7 +47,10 @@ outputs:
     build:
       noarch: python
     requirements:
-      host: *host
+      host:
+        - pip
+        - python >=3.8
+        - flit-core >=3.2,<4
       run:
         - python >=3.8
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
@@ -66,7 +69,10 @@ outputs:
     build:
       noarch: python
     requirements:
-      host: *host
+      host:
+        - pip
+        - python >=3.8
+        - flit-core >=3.2,<4
       run:
         - python >=3.8
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
@@ -84,7 +90,10 @@ outputs:
     build:
       noarch: python
     requirements:
-      host: *host
+      host:
+        - pip
+        - python >=3.8
+        - flit-core >=3.2,<4
       run:
         - python >=3.8
         - {{ pin_subpackage('cloudpathlib', exact=True) }}
@@ -102,7 +111,10 @@ outputs:
     build:
       noarch: python
     requirements:
-      host: *host
+      host:
+        - pip
+        - python >=3.8
+        - flit-core >=3.2,<4
       run:
         - python >=3.8
         - {{ pin_subpackage('cloudpathlib-azure', exact=True) }}
