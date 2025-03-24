@@ -42,6 +42,7 @@ outputs:
         - pip check
       requires:
         - pip
+        - python {{ python_min }}
 
   - name: cloudpathlib-azure
     build:
@@ -64,6 +65,7 @@ outputs:
         - python -c "from cloudpathlib.cloudpath import implementation_registry; implementation_registry['azure'].validate_completeness()"
       requires:
         - pip
+        - python {{ python_min }}
 
   - name: cloudpathlib-gs
     build:
@@ -85,6 +87,7 @@ outputs:
         - python -c "from cloudpathlib.cloudpath import implementation_registry; implementation_registry['gs'].validate_completeness()"
       requires:
         - pip
+        - python {{ python_min }}
 
   - name: cloudpathlib-s3
     build:
@@ -106,6 +109,7 @@ outputs:
         - python -c "from cloudpathlib.cloudpath import implementation_registry; implementation_registry['s3'].validate_completeness()"
       requires:
         - pip
+        - python {{ python_min }}
 
   - name: cloudpathlib-all
     build:
