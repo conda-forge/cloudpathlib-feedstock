@@ -1,5 +1,5 @@
 {% set name = "cloudpathlib" %}
-{% set version = "0.25.0" %}
+{% set version = "0.26.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 63612e17778c5e3a51b472def8d785d0aaaf347486d6b6786dc7be627556d4c6
+  sha256: 6ea02248f2db7cb10729caf1edbdec92587dfdbbd3df8c71a32aedd4ae55715a
 
 build:
   number: 0
